@@ -1,0 +1,26 @@
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import BaseBadge from './BaseBadge.vue';
+
+describe('BaseBadge', () => {
+  it('renders label text', () => {
+    const wrapper = mount(BaseBadge, {
+      props: {
+        label: 'Activo',
+      },
+    });
+
+    expect(wrapper.text()).toContain('Activo');
+  });
+
+  it('applies tone class', () => {
+    const wrapper = mount(BaseBadge, {
+      props: {
+        label: 'Warning',
+        tone: 'warning',
+      },
+    });
+
+    expect(wrapper.classes()).toContain('base-badge--warning');
+  });
+});

@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background: radial-gradient(circle at top right, #dff4ef, #f8fafc 45%);
+  color: var(--color-text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  min-height: 100vh;
+}

@@ -1,0 +1,24 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import BaseBadge from './BaseBadge.vue';
+
+const meta: Meta<typeof BaseBadge> = {
+  title: 'Atoms/BaseBadge',
+  component: BaseBadge,
+  args: {
+    label: 'Nuevo',
+    tone: 'info',
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof BaseBadge>;
+
+export const Info: Story = {};
+
+export const Success: Story = {
+  args: {
+    tone: 'success',
+    label: 'Completado',
+  },
+};
