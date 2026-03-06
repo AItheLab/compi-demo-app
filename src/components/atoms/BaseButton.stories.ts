@@ -29,3 +29,10 @@ export const Ghost: Story = {
     label: 'Ghost',
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    label: 'Deshabilitado',
+    disabled: true,
+  },
+};
