@@ -22,3 +22,10 @@ export const Success: Story = {
     label: 'Completado',
   },
 };
+
+export const Error: Story = {
+  args: {
+    tone: 'error',
+    label: 'Error',
+  },
+};
