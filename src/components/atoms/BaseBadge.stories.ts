@@ -23,6 +23,13 @@ export const Success: Story = {
   },
 };
 
+export const Warning: Story = {
+  args: {
+    tone: 'warning',
+    label: 'Advertencia',
+  },
+};
+
 export const Error: Story = {
   args: {
     tone: 'error',
