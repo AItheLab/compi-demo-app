@@ -16,3 +16,11 @@ export default meta;
 type Story = StoryObj<typeof UserCard>;
 
 export const Default: Story = {};
+
+export const Highlighted: Story = {
+  args: {
+    name: 'Luis Navarro',
+    role: 'Product Designer',
+    avatarUrl: 'https://i.pravatar.cc/80?img=32',
+  },
+};
