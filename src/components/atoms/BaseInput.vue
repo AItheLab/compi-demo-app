@@ -4,6 +4,7 @@
     :type="type"
     :placeholder="placeholder"
     :value="modelValue"
+    :disabled="disabled"
     @input="onInput"
     @keyup.enter="onEnter"
   />
@@ -16,6 +17,7 @@ export interface BaseInputProps {
   modelValue: string;
   placeholder?: string;
   type?: 'text' | 'email' | 'password' | 'search';
+  disabled?: boolean;
 }
 
 export default defineComponent({
@@ -32,6 +34,10 @@ export default defineComponent({
     type: {
       type: String as PropType<BaseInputProps['type']>,
       default: 'text',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: {
@@ -71,5 +77,16 @@ export default defineComponent({
 .base-input:focus {
   outline: 2px solid color-mix(in srgb, var(--color-brand-500) 35%, transparent);
   border-color: var(--color-brand-500);
+}
+
+.base-input:disabled {
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border-color: var(--color-surface-alt);
+  cursor: not-allowed;
+}
+
+.base-input:disabled::placeholder {
+  color: var(--color-text-secondary);
 }
 </style>
