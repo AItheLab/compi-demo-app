@@ -7,7 +7,6 @@ const meta: Meta<typeof BaseInput> = {
   args: {
     modelValue: '',
     placeholder: 'Buscar usuarios...',
-    type: 'search',
   },
 };
 
@@ -17,9 +16,17 @@ type Story = StoryObj<typeof BaseInput>;
 
 export const Default: Story = {};
 
+export const Search: Story = {
+  args: {
+    search: true,
+    placeholder: 'Buscar usuarios...',
+    type: 'search',
+  },
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,
-    placeholder: 'Buscar usuarios...'
+    placeholder: 'Buscar usuarios...',
   },
 };
