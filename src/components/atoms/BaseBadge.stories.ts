@@ -36,3 +36,10 @@ export const Error: Story = {
     label: 'Error',
   },
 };
+
+export const CustomColor: Story = {
+  args: {
+    label: 'Personalizado',
+    customColor: '#9333ea',
+  },
+};
