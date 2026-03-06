@@ -24,4 +24,21 @@ describe('BaseButton', () => {
 
     expect(wrapper.emitted('click')).toHaveLength(1);
   });
+
+  it('does not emit click when disabled', async () => {
+    const wrapper = mount(BaseButton, {
+      props: {
+        label: 'No disponible',
+        disabled: true,
+      },
+    });
+
+    const button = wrapper.get('button');
+
+    expect(button.attributes('disabled')).toBeDefined();
+
+    await button.trigger('click');
+
+    expect(wrapper.emitted('click')).toBeUndefined();
+  });
 });
