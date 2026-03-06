@@ -23,4 +23,15 @@ describe('BaseAvatar', () => {
 
     expect(wrapper.find('img').exists()).toBe(true);
   });
+
+  it('renders icon when iconName is provided without src', () => {
+    const wrapper = mount(BaseAvatar, {
+      props: {
+        name: 'Ana Torres',
+        iconName: 'user',
+      },
+    });
+
+    expect(wrapper.find('.base-avatar__icon').exists()).toBe(true);
+  });
 });

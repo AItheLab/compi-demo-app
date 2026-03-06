@@ -1,21 +1,27 @@
 <template>
   <div class="base-avatar" :style="avatarStyle" :aria-label="name">
     <img v-if="src" :src="src" :alt="name" class="base-avatar__image" />
+    <BaseIcon v-else-if="iconName" class="base-avatar__icon" :name="iconName" :size="iconSize" />
     <span v-else class="base-avatar__fallback">{{ initials }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, type CSSProperties } from 'vue';
+import { computed, defineComponent, type CSSProperties, type PropType } from 'vue';
+import BaseIcon, { type BaseIconProps } from './BaseIcon.vue';
 
 export interface BaseAvatarProps {
   name: string;
   src?: string;
   size?: number;
+  iconName?: BaseIconProps['name'];
 }
 
 export default defineComponent({
   name: 'BaseAvatar',
+  components: {
+    BaseIcon,
+  },
   props: {
     name: {
       type: String,
@@ -28,6 +34,10 @@ export default defineComponent({
     size: {
       type: Number,
       default: 40,
+    },
+    iconName: {
+      type: String as PropType<BaseIconProps['name']>,
+      default: undefined,
     },
   },
   setup(props) {
@@ -46,9 +56,12 @@ export default defineComponent({
       fontSize: `${Math.max(props.size / 2.7, 12)}px`,
     }));
 
+    const iconSize = computed(() => Math.max(props.size / 2.4, 14));
+
     return {
       initials,
       avatarStyle,
+      iconSize,
     };
   },
 });
@@ -74,5 +87,9 @@ export default defineComponent({
 
 .base-avatar__fallback {
   line-height: 1;
+}
+
+.base-avatar__icon {
+  color: inherit;
 }
 </style>

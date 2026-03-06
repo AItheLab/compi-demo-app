@@ -21,3 +21,9 @@ export const WithImage: Story = {
     src: 'https://i.pravatar.cc/80?img=42',
   },
 };
+
+export const WithIcon: Story = {
+  args: {
+    iconName: 'user',
+  },
+};
