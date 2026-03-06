@@ -13,6 +13,17 @@ describe('BaseButton', () => {
     expect(wrapper.text()).toContain('Guardar');
   });
 
+  it('renders icon when provided', () => {
+    const wrapper = mount(BaseButton, {
+      props: {
+        label: 'Buscar',
+        icon: 'search',
+      },
+    });
+
+    expect(wrapper.find('.base-icon').exists()).toBe(true);
+  });
+
   it('emits click when pressed', async () => {
     const wrapper = mount(BaseButton, {
       props: {
