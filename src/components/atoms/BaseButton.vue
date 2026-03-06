@@ -1,20 +1,30 @@
 <template>
   <button class="base-button" :class="[`base-button--${variant}`]" :disabled="disabled" type="button" @click="onClick">
-    <slot>{{ label }}</slot>
+    <BaseIcon v-if="icon && iconPosition === 'left'" class="base-button__icon" :name="icon" />
+    <span class="base-button__label">
+      <slot>{{ label }}</slot>
+    </span>
+    <BaseIcon v-if="icon && iconPosition === 'right'" class="base-button__icon" :name="icon" />
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
+import BaseIcon, { type BaseIconProps } from './BaseIcon.vue';
 
 export interface BaseButtonProps {
   label: string;
   variant?: 'primary' | 'secondary' | 'ghost';
   disabled?: boolean;
+  icon?: BaseIconProps['name'];
+  iconPosition?: 'left' | 'right';
 }
 
 export default defineComponent({
   name: 'BaseButton',
+  components: {
+    BaseIcon,
+  },
   props: {
     label: {
       type: String,
@@ -27,6 +37,14 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false,
+    },
+    icon: {
+      type: String as PropType<BaseButtonProps['icon']>,
+      default: undefined,
+    },
+    iconPosition: {
+      type: String as PropType<BaseButtonProps['iconPosition']>,
+      default: 'left',
     },
   },
   emits: {
@@ -50,6 +68,10 @@ export default defineComponent({
 
 <style scoped>
 .base-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   border: none;
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-4);
@@ -82,5 +104,14 @@ export default defineComponent({
   background-color: transparent;
   color: var(--color-brand-600);
   border: 1px solid var(--color-brand-500);
+}
+
+.base-button__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.base-button :deep(.base-icon) {
+  color: currentColor;
 }
 </style>

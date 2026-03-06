@@ -30,6 +30,21 @@ export const Ghost: Story = {
   },
 };
 
+export const WithIcon: Story = {
+  args: {
+    label: 'Buscar',
+    icon: 'search',
+  },
+};
+
+export const WithIconRight: Story = {
+  args: {
+    label: 'Continuar',
+    icon: 'check',
+    iconPosition: 'right',
+  },
+};
+
 export const Disabled: Story = {
   args: {
     label: 'Deshabilitado',
