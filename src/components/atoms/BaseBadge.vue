@@ -1,15 +1,16 @@
 <template>
-  <span class="base-badge" :class="[`base-badge--${tone}`]">
+  <span class="base-badge" :class="badgeClass" :style="customStyle">
     <slot>{{ label }}</slot>
   </span>
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
+import { computed, defineComponent, type PropType } from 'vue';
 
 export interface BaseBadgeProps {
   label: string;
   tone?: 'info' | 'success' | 'warning' | 'danger' | 'error';
+  customColor?: string;
 }
 
 export default defineComponent({
@@ -23,6 +24,24 @@ export default defineComponent({
       type: String as PropType<BaseBadgeProps['tone']>,
       default: 'info',
     },
+    customColor: {
+      type: String,
+      default: undefined,
+    },
+  },
+  setup(props) {
+    const badgeClass = computed(() =>
+      props.customColor ? 'base-badge--custom' : `base-badge--${props.tone}`,
+    );
+
+    const customStyle = computed(() =>
+      props.customColor ? { '--badge-color': props.customColor } : {},
+    );
+
+    return {
+      badgeClass,
+      customStyle,
+    };
   },
 });
 </script>
@@ -60,5 +79,10 @@ export default defineComponent({
 .base-badge--error {
   color: var(--color-danger);
   background-color: color-mix(in srgb, var(--color-danger) 24%, white);
+}
+
+.base-badge--custom {
+  color: var(--badge-color);
+  background-color: color-mix(in srgb, var(--badge-color) 20%, white);
 }
 </style>

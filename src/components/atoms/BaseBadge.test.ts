@@ -34,4 +34,16 @@ describe('BaseBadge', () => {
 
     expect(wrapper.classes()).toContain('base-badge--error');
   });
+
+  it('uses custom color style when provided', () => {
+    const wrapper = mount(BaseBadge, {
+      props: {
+        label: 'Custom',
+        customColor: '#7c3aed',
+      },
+    });
+
+    expect(wrapper.classes()).toContain('base-badge--custom');
+    expect(wrapper.attributes('style')).toContain('--badge-color: #7c3aed');
+  });
 });
