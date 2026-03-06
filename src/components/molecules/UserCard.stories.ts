@@ -24,3 +24,11 @@ export const Highlighted: Story = {
     avatarUrl: 'https://i.pravatar.cc/80?img=32',
   },
 };
+
+export const Executive: Story = {
+  args: {
+    name: 'Camila Torres',
+    role: 'Head of Engineering',
+    avatarUrl: 'https://i.pravatar.cc/80?img=48',
+  },
+};
