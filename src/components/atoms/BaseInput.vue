@@ -1,27 +1,36 @@
 <template>
-  <input
-    class="base-input"
-    :type="type"
-    :placeholder="placeholder"
-    :value="modelValue"
-    :disabled="disabled"
-    @input="onInput"
-    @keyup.enter="onEnter"
-  />
+  <div class="base-input__wrapper">
+    <BaseIcon v-if="search" class="base-input__icon" name="search" :size="16" />
+    <input
+      class="base-input"
+      :class="{ 'base-input--search': search }"
+      :type="type"
+      :placeholder="placeholder"
+      :value="modelValue"
+      :disabled="disabled"
+      @input="onInput"
+      @keyup.enter="onEnter"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
+import BaseIcon from './BaseIcon.vue';
 
 export interface BaseInputProps {
   modelValue: string;
   placeholder?: string;
   type?: 'text' | 'email' | 'password' | 'search';
   disabled?: boolean;
+  search?: boolean;
 }
 
 export default defineComponent({
   name: 'BaseInput',
+  components: {
+    BaseIcon,
+  },
   props: {
     modelValue: {
       type: String,
@@ -36,6 +45,10 @@ export default defineComponent({
       default: 'text',
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    search: {
       type: Boolean,
       default: false,
     },
@@ -64,6 +77,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.base-input__wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .base-input {
   width: 100%;
   border: 1px solid var(--color-surface-alt);
@@ -72,6 +90,18 @@ export default defineComponent({
   font-size: var(--font-size-md);
   color: var(--color-text-primary);
   background-color: white;
+}
+
+.base-input--search {
+  padding-left: calc(var(--space-3) + var(--space-4));
+}
+
+.base-input__icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .base-input:focus {
