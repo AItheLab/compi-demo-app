@@ -9,7 +9,7 @@ import { defineComponent, type PropType } from 'vue';
 
 export interface BaseBadgeProps {
   label: string;
-  tone?: 'info' | 'success' | 'warning' | 'danger';
+  tone?: 'info' | 'success' | 'warning' | 'danger' | 'error';
 }
 
 export default defineComponent({
@@ -55,5 +55,10 @@ export default defineComponent({
 .base-badge--danger {
   color: var(--color-danger);
   background-color: color-mix(in srgb, var(--color-danger) 18%, white);
+}
+
+.base-badge--error {
+  color: var(--color-danger);
+  background-color: color-mix(in srgb, var(--color-danger) 24%, white);
 }
 </style>

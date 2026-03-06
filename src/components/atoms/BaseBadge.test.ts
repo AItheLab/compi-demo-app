@@ -23,4 +23,15 @@ describe('BaseBadge', () => {
 
     expect(wrapper.classes()).toContain('base-badge--warning');
   });
+
+  it('supports error tone', () => {
+    const wrapper = mount(BaseBadge, {
+      props: {
+        label: 'Error',
+        tone: 'error',
+      },
+    });
+
+    expect(wrapper.classes()).toContain('base-badge--error');
+  });
 });
