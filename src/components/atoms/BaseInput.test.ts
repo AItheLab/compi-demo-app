@@ -35,4 +35,16 @@ describe('BaseInput', () => {
 
     expect(wrapper.get('input').attributes('disabled')).toBeDefined();
   });
+
+  it('renders search icon when search is true', () => {
+    const wrapper = mount(BaseInput, {
+      props: {
+        modelValue: '',
+        search: true,
+      },
+    });
+
+    expect(wrapper.find('.base-input__icon').exists()).toBe(true);
+    expect(wrapper.find('.base-input--search').exists()).toBe(true);
+  });
 });
