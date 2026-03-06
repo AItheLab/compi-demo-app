@@ -59,7 +59,7 @@ export default defineComponent({
   transition: transform 120ms ease, opacity 120ms ease;
 }
 
-.base-button:hover {
+.base-button:not(:disabled):hover {
   transform: translateY(-1px);
 }
 
