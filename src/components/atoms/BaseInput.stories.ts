@@ -16,3 +16,10 @@ export default meta;
 type Story = StoryObj<typeof BaseInput>;
 
 export const Default: Story = {};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    modelValue: 'Campo deshabilitado',
+  },
+};
