@@ -53,60 +53,63 @@ export default defineComponent({
   line-height: 1;
 }
 
-/* Variants */
-.base-tag--default {
+/* Variant: default */
+.base-tag--default.base-tag--neutral {
   background-color: var(--color-surface-alt);
   color: var(--color-text-secondary);
 }
 
-.base-tag--outline {
+.base-tag--outline.base-tag--neutral {
   background-color: transparent;
   border: 1px solid var(--color-surface-alt);
   color: var(--color-text-secondary);
 }
 
-/* Tones */
-.base-tag--brand.default {
+/* Tone: brand */
+.base-tag--default.base-tag--brand {
   background-color: color-mix(in srgb, var(--color-brand-500) 18%, white);
   color: var(--color-brand-600);
 }
 
-.base-tag--brand.outline {
+.base-tag--outline.base-tag--brand {
   background-color: transparent;
-  border-color: var(--color-brand-500);
+  border: 1px solid var(--color-brand-500);
   color: var(--color-brand-600);
 }
 
-.base-tag--success.default {
+/* Tone: success */
+.base-tag--default.base-tag--success {
   background-color: color-mix(in srgb, var(--color-success) 18%, white);
   color: var(--color-success);
 }
 
-.base-tag--success.outline {
+.base-tag--outline.base-tag--success {
   background-color: transparent;
-  border-color: var(--color-success);
+  border: 1px solid var(--color-success);
   color: var(--color-success);
 }
 
-.base-tag--warning.default {
+/* Tone: warning */
+.base-tag--default.base-tag--warning {
   background-color: color-mix(in srgb, var(--color-warning) 18%, white);
   color: var(--color-warning);
 }
 
-.base-tag--warning.outline {
+.base-tag--outline.base-tag--warning {
   background-color: transparent;
-  border-color: var(--color-warning);
+  border: 1px solid var(--color-warning);
   color: var(--color-warning);
 }
 
-.base-tag--danger.default {
+/* Tone: danger */
+.base-tag--default.base-tag--danger {
   background-color: color-mix(in srgb, var(--color-danger) 18%, white);
   color: var(--color-danger);
 }
 
-.base-tag--danger.outline {
+.base-tag--outline.base-tag--danger {
   background-color: transparent;
-  border-color: var(--color-danger);
+  border: 1px solid var(--color-danger);
   color: var(--color-danger);
 }
 </style>
