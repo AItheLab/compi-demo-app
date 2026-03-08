@@ -24,9 +24,9 @@ export interface BaseActionButtonProps {
 }
 
 const ICON_SIZES: Record<NonNullable<BaseActionButtonProps['size']>, number> = {
-  sm: 14,
-  md: 16,
-  lg: 18,
+  sm: 16,
+  md: 18,
+  lg: 20,
 };
 
 export default defineComponent({
@@ -116,18 +116,18 @@ export default defineComponent({
 }
 
 .base-action-button--sm {
-  width: var(--space-6);
-  height: var(--space-6);
+  width: calc(var(--space-6) + var(--space-1));
+  height: calc(var(--space-6) + var(--space-1));
 }
 
 .base-action-button--md {
-  width: calc(var(--space-6) + var(--space-2));
-  height: calc(var(--space-6) + var(--space-2));
+  width: calc(var(--space-6) + var(--space-3));
+  height: calc(var(--space-6) + var(--space-3));
 }
 
 .base-action-button--lg {
-  width: calc(var(--space-6) + var(--space-4));
-  height: calc(var(--space-6) + var(--space-4));
+  width: calc(var(--space-6) + var(--space-5));
+  height: calc(var(--space-6) + var(--space-5));
 }
 
 .base-action-button__icon {
