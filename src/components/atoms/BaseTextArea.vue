@@ -57,7 +57,9 @@ export default defineComponent({
 
 <style scoped>
 .base-text-area {
+  display: block;
   width: 100%;
+  min-width: calc(var(--space-6) * 12);
   border: 1px solid var(--color-surface-alt);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
