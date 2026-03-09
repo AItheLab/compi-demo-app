@@ -29,3 +29,10 @@ export const Disabled: Story = {
     placeholder: 'Buscar usuarios...'
   },
 };
+
+export const WithLabel: Story = {
+  args: {
+    label: 'Nombre de usuario',
+    placeholder: 'Ingresa tu nombre',
+  },
+};

@@ -1,9 +1,10 @@
 <template>
   <div class="base-input__wrapper">
+    <label v-if="label" class="base-input__label">{{ label }}</label>
     <BaseIcon v-if="search" class="base-input__icon" name="search" :size="16" />
     <input
       class="base-input"
-      :class="{ 'base-input--search': search }"
+      :class="{ 'base-input--search': search, 'base-input--with-label': label }"
       :type="type"
       :placeholder="placeholder"
       :value="modelValue"
@@ -20,6 +21,7 @@ import BaseIcon from './BaseIcon.vue';
 
 export interface BaseInputProps {
   modelValue: string;
+  label?: string;
   placeholder?: string;
   type?: 'text' | 'email' | 'password' | 'search';
   disabled?: boolean;
@@ -35,6 +37,10 @@ export default defineComponent({
     modelValue: {
       type: String,
       required: true,
+    },
+    label: {
+      type: String,
+      default: '',
     },
     placeholder: {
       type: String,
@@ -82,6 +88,14 @@ export default defineComponent({
   width: 100%;
 }
 
+.base-input__label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
 .base-input {
   width: 100%;
   border: 1px solid var(--color-surface-alt);
@@ -94,6 +108,10 @@ export default defineComponent({
 
 .base-input--search {
   padding-left: calc(var(--space-3) + var(--space-4));
+}
+
+.base-input--with-label {
+  margin-top: var(--space-1);
 }
 
 .base-input__icon {

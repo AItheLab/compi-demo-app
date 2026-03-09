@@ -47,4 +47,26 @@ describe('BaseInput', () => {
     expect(wrapper.find('.base-input__icon').exists()).toBe(true);
     expect(wrapper.find('.base-input--search').exists()).toBe(true);
   });
+
+  it('renders label when provided', () => {
+    const wrapper = mount(BaseInput, {
+      props: {
+        modelValue: '',
+        label: 'Nombre de usuario',
+      },
+    });
+
+    expect(wrapper.find('.base-input__label').exists()).toBe(true);
+    expect(wrapper.find('.base-input__label').text()).toBe('Nombre de usuario');
+  });
+
+  it('does not render label when not provided', () => {
+    const wrapper = mount(BaseInput, {
+      props: {
+        modelValue: '',
+      },
+    });
+
+    expect(wrapper.find('.base-input__label').exists()).toBe(false);
+  });
 });
