@@ -2,6 +2,7 @@
   <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8">
     <!-- COMPI-FLOW-TEST-MARKER: v1 -->
     <!-- COMPI-FLOW-TEST-MARKER: v2 -->
+    <!-- COMPI-FLOW-TEST-MARKER: v3 -->
     <NavigationBar
       logo="Compi DS"
       :user-name="currentUser.name"
