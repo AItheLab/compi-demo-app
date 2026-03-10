@@ -91,8 +91,12 @@ export default defineComponent({
 }
 
 .base-button--primary {
-  background-color: var(--color-brand-500);
+  background-color: var(--color-primary);
   color: white;
+}
+
+.base-button--primary:hover {
+  background-color: var(--color-primary-hover);
 }
 
 .base-button--secondary {
