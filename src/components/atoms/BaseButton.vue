@@ -91,8 +91,12 @@ export default defineComponent({
 }
 
 .base-button--primary {
-  background-color: var(--color-brand-500);
+  background-color: var(--color-primary-500);
   color: white;
+}
+
+.base-button--primary:hover {
+  background-color: var(--color-primary-600);
 }
 
 .base-button--secondary {
@@ -102,8 +106,8 @@ export default defineComponent({
 
 .base-button--ghost {
   background-color: transparent;
-  color: var(--color-brand-600);
-  border: 1px solid var(--color-brand-500);
+  color: var(--color-primary-600);
+  border: 1px solid var(--color-primary-500);
 }
 
 .base-button__icon {
