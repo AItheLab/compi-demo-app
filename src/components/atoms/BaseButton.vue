@@ -91,7 +91,7 @@ export default defineComponent({
 }
 
 .base-button--primary {
-  background-color: var(--color-brand-500);
+  background-color: var(--color-primary-500);
   color: white;
 }
 
