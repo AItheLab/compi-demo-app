@@ -7,6 +7,7 @@ export default {
     extend: {
       colors: {
         brand: 'var(--color-brand-500)',
+        primary: 'var(--color-primary-500)',
         surface: 'var(--color-surface)',
         foreground: 'var(--color-text-primary)',
       },
