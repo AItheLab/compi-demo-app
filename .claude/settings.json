@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_input.pattern // \"\"' | grep -q '\\.env' && echo '{\"decision\":\"block\",\"reason\":\"Access to .env files is not allowed.\"}' || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | grep -qE '\\.(vue|ts)$' && npx vue-tsc --noEmit 2>&1 || true",
+            "timeout": 60,
+            "statusMessage": "Type checking..."
+          }
+        ]
+      }
+    ]
+  }
+}
