@@ -30,6 +30,13 @@ export const Ghost: Story = {
   },
 };
 
+export const Accent: Story = {
+  args: {
+    variant: 'accent',
+    label: 'Acento',
+  },
+};
+
 export const WithIcon: Story = {
   args: {
     label: 'Buscar',

@@ -14,7 +14,7 @@ import BaseIcon, { type BaseIconProps } from './BaseIcon.vue';
 
 export interface BaseButtonProps {
   label: string;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'accent';
   disabled?: boolean;
   icon?: BaseIconProps['name'];
   iconPosition?: 'left' | 'right';
@@ -108,6 +108,11 @@ export default defineComponent({
   background-color: transparent;
   color: var(--color-primary-600);
   border: 1px solid var(--color-primary-500);
+}
+
+.base-button--accent {
+  background-color: var(--color-primary-500);
+  color: white;
 }
 
 .base-button__icon {
